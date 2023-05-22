@@ -12,16 +12,16 @@ namespace HVAC_System_Airflow.Search
         /// </summary>
         private static List<int> elements_ids;
         /// <summary>
-        /// This list temporarily stores all the AirTerminals that have been seen so far.
+        /// This list temporarily stores all the air terminals that have been seen so far.
         /// </summary>
         private static List<Element> AirTerminals = new List<Element>();
 
 
         /// <summary>
-        /// This function finds all AirTerminals that can be reached through an element.
+        /// This function finds all air terminals that can be reached through an element.
         /// </summary>
         /// <param name="document"></param>
-        /// <param name="element">An element through which all Air Terminals of a UAV system are found.</param>
+        /// <param name="element">An element through which all air terminals of a UAV system are found.</param>
         /// <returns>
         /// <c>AirTerminals</c>: <c>List</c> --> <c>Element</c>
         /// </returns>
@@ -50,7 +50,7 @@ namespace HVAC_System_Airflow.Search
 
 
         /// <summary>
-        /// This function finds the total airflow by taking all the AirTerminals of a UVAC system.
+        /// This function finds the total airflow by taking all the air terminals of a UVAC system.
         /// </summary>
         /// <param name="AirTerminals"></param>
         /// <returns>
@@ -71,7 +71,7 @@ namespace HVAC_System_Airflow.Search
         }
 
         /// <summary>
-        /// This function finds all Air Terminals that can be reached through one of the connectors of an element.
+        /// This function finds all air terminals that can be reached through one of the connectors of an element.
         /// </summary>
         /// <param name="document"></param>
         /// <param name="connector">One of the connectors of an element</param>
