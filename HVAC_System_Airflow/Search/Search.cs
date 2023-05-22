@@ -18,7 +18,7 @@ namespace HVAC_System_Airflow.Search
 
 
         /// <summary>
-        /// This function finds all air terminals that can be reached through an element.
+        /// This method finds all air terminals that can be reached through an element.
         /// </summary>
         /// <param name="document"></param>
         /// <param name="element">An element through which all air terminals of a UAV system are found.</param>
@@ -50,7 +50,7 @@ namespace HVAC_System_Airflow.Search
 
 
         /// <summary>
-        /// This function finds the total airflow by taking all the air terminals of a UVAC system.
+        /// This method finds the total airflow by taking all the air terminals of a UVAC system.
         /// </summary>
         /// <param name="AirTerminals"></param>
         /// <returns>
@@ -71,7 +71,7 @@ namespace HVAC_System_Airflow.Search
         }
 
         /// <summary>
-        /// This function finds all air terminals that can be reached through one of the connectors of an element.
+        /// This method finds all air terminals that can be reached through one of the connectors of an element.
         /// </summary>
         /// <param name="document"></param>
         /// <param name="connector">One of the connectors of an element</param>
