@@ -22,12 +22,14 @@ namespace HVAC_System_Airflow.Search
             var elementId = uiDocument.Selection.PickObject(ObjectType.Element, "Please select an element to start with");
             if (elementId == null) return Result.Cancelled;
 
-
+            // Get selected element
             var selectedElement = document.GetElement(elementId);
 
             try
             {
+                // Find all air terminals of a UVAC system 
                 var ats = Search.SearchForAirTerminals(document, selectedElement);
+                // Calculate total airflow of all terminals
                 var total_airflow = Search.CalculateTotalAirFlow(ats);
                 TaskDialog.Show("TotalAirflow", $"No of AirTerminals: {ats.Count} \nTota Airflow: {total_airflow} L/S", TaskDialogCommonButtons.Ok);
             }
