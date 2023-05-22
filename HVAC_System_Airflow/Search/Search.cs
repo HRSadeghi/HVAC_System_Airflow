@@ -11,6 +11,17 @@ namespace HVAC_System_Airflow.Search
         private static List<Element> AirTerminals = new List<Element>();
 
 
+        /// <summary>
+        /// This function finds all AirTerminals that can be reached through an element.
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="element">An element through which all Air Terminals of a UAV system are found.</param>
+        /// <returns>
+        /// <code>
+        /// AirTerminals
+        /// </code>
+        /// </returns>
+        /// <exception cref="Exception"></exception>
         public static List<Element> SearchForAirTerminals(Autodesk.Revit.DB.Document document, Element element)
         {
             AirTerminals = new List<Element>();
