@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Name>HVAC System Airflow</Name>
+		<Assembly>D:\projects\.Net\HVAC-System-Airflow\HVAC_System_Airflow\bin\Debug\HVAC_System_Airflow.dll</Assembly>
+		<Text>HVAC System Airflow</Text>
+		<ClientId>0ef87dbb-f5d2-4197-b711-ead5062d38b1</ClientId>
+		<FullClassName>Revit_Sandbox.Commands.SampleCommand</FullClassName>
+		<VendorId>com.HAMIDSADEGHI</VendorId>
+		<VendorDescription>HAMIDSADEGHI, </VendorDescription>
+	</AddIn>
+</RevitAddIns>
