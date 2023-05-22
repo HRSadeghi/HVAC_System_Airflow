@@ -17,9 +17,7 @@ namespace HVAC_System_Airflow.Search
         /// <param name="document"></param>
         /// <param name="element">An element through which all Air Terminals of a UAV system are found.</param>
         /// <returns>
-        /// <code>
-        /// AirTerminals
-        /// </code>
+        /// <c>AirTerminals</c>: <c>List</c> --> <c>Element</c>
         /// </returns>
         /// <exception cref="Exception"></exception>
         public static List<Element> SearchForAirTerminals(Autodesk.Revit.DB.Document document, Element element)
@@ -45,6 +43,13 @@ namespace HVAC_System_Airflow.Search
         }
 
 
+        /// <summary>
+        /// This function finds the total airflow by taking all the AirTerminals of a UVAC system.
+        /// </summary>
+        /// <param name="AirTerminals"></param>
+        /// <returns>
+        /// <c>totalAirFlow</c>: <c>double</c>
+        /// </returns>
         public static double CalculateTotalAirFlow(List<Element> AirTerminals)
         {
             double totalAirFlow = 0;
@@ -59,7 +64,11 @@ namespace HVAC_System_Airflow.Search
             return totalAirFlow;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="connector"></param>
         private static void _searchForAirTerminals(Autodesk.Revit.DB.Document document, Connector connector)
         {
             List<Connector> connected_connectors = new List<Connector>();
