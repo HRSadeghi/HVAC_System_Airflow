@@ -147,7 +147,11 @@ namespace HVAC_System_Airflow.Search
 
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         private static ConnectorSet GetConnectors(Element e)
         {
             ConnectorSet connectors = null;
