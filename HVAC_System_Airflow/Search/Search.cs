@@ -193,7 +193,7 @@ namespace HVAC_System_Airflow.Search
         }
 
         /// <summary>
-        /// This method receives an object and the name of a property related to it as a string and returns the said attribute.
+        /// This method receives an object and the name of a property related to it as a string and returns the asked property.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="propertyName"></param>
