@@ -148,17 +148,17 @@ namespace HVAC_System_Airflow.Search
         }
 
         /// <summary>
-        /// 
+        /// This method returns all the connectors of an element in the form of a set of connectors.
         /// </summary>
-        /// <param name="e"></param>
-        /// <returns></returns>
-        private static ConnectorSet GetConnectors(Element e)
+        /// <param name="element"></param>
+        /// <returns><c>connectors</c>: <c>ConnectorSet</c></returns>
+        private static ConnectorSet GetConnectors(Element element)
         {
             ConnectorSet connectors = null;
 
-            if (e is FamilyInstance)
+            if (element is FamilyInstance)
             {
-                MEPModel m = ((FamilyInstance)e).MEPModel;
+                MEPModel m = ((FamilyInstance)element).MEPModel;
 
                 if (null != m
                   && null != m.ConnectorManager)
@@ -166,20 +166,25 @@ namespace HVAC_System_Airflow.Search
                     connectors = m.ConnectorManager.Connectors;
                 }
             }
-            else if (e is Wire)
+            else if (element is Wire)
             {
-                connectors = ((Wire)e)
+                connectors = ((Wire)element)
                   .ConnectorManager.Connectors;
             }
-            else if (e is MEPCurve)
+            else if (element is MEPCurve)
             {
-                connectors = ((MEPCurve)e)
+                connectors = ((MEPCurve)element)
                       .ConnectorManager.Connectors;
             }
             return connectors;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
         private static bool HasProperty(this object obj, string propertyName)
         {
             return obj.GetType().GetProperty(propertyName) != null;
