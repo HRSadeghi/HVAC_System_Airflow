@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
-	<AddIn Type="Command">
+	<AddIn Type="Search">
 		<Name>HVAC System Airflow</Name>
 		<Assembly>D:\projects\.Net\HVAC-System-Airflow\HVAC_System_Airflow\bin\Debug\HVAC_System_Airflow.dll</Assembly>
 		<Text>HVAC System Airflow</Text>
