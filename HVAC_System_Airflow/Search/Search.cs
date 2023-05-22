@@ -180,16 +180,26 @@ namespace HVAC_System_Airflow.Search
         }
 
         /// <summary>
-        /// 
+        /// This method checks whether an object has a certain property or not.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="propertyName"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// <c>result</c>: <c>bool</c>
+        /// </returns>
         private static bool HasProperty(this object obj, string propertyName)
         {
             return obj.GetType().GetProperty(propertyName) != null;
         }
 
+        /// <summary>
+        /// This method receives an object and the name of a property related to it as a string and returns the said attribute.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="propertyName"></param>
+        /// <returns>
+        /// <c>result</c>: <c>object</c>
+        /// </returns>
         private static object GetPropValue(object src, string propName)
         {
             return src.GetType().GetProperty(propName).GetValue(src, null);
