@@ -7,7 +7,13 @@ namespace HVAC_System_Airflow.Search
 {
     static class Search
     {
+        /// <summary>
+        /// This list temporarily stores all element IDs that have been seen so far.
+        /// </summary>
         private static List<int> elements_ids;
+        /// <summary>
+        /// This list temporarily stores all the AirTerminals that have been seen so far.
+        /// </summary>
         private static List<Element> AirTerminals = new List<Element>();
 
 
@@ -65,10 +71,10 @@ namespace HVAC_System_Airflow.Search
         }
 
         /// <summary>
-        /// 
+        /// This function finds all Air Terminals that can be reached through one of the connectors of an element.
         /// </summary>
         /// <param name="document"></param>
-        /// <param name="connector"></param>
+        /// <param name="connector">One of the connectors of an element</param>
         private static void _searchForAirTerminals(Autodesk.Revit.DB.Document document, Connector connector)
         {
             List<Connector> connected_connectors = new List<Connector>();
