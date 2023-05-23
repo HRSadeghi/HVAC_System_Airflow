@@ -36,7 +36,7 @@ namespace HVAC_System_Airflow.Search
 
             try
             {
-                // Find all air terminals of a UVAC system 
+                // Find all air terminals of an UVAC system 
                 var ats = Search.SearchForAirTerminals(document, selectedElement);
                 // Calculate total airflow of all terminals
                 var total_airflow = Search.CalculateTotalAirFlow(ats);
