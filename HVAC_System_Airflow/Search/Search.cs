@@ -50,7 +50,6 @@ namespace HVAC_System_Airflow.Search
             var conectors = GetConnectors(element);
             if (conectors != null)
             {
-                //TaskDialog.Show("Simple Command", $"Simple element: {elementId}", TaskDialogCommonButtons.Ok);
                 foreach (var connector in conectors)
                 {
                     _searchForAirTerminals(document, (Connector)connector);
