@@ -34,7 +34,7 @@ public static List<Element> SearchForAirTerminals(Autodesk.Revit.DB.Document doc
 }
 ```
 
-The [```SearchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL44C37-L44C58) method first finds all the connectors of an element. Then, each connector is given individually to the [```_searchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL92C12-L92C12) method to find all the air terminals that can be reached through this connector. This method works recursively. Method [```_searchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL92C12-L92C12) is as follows:
+The [```SearchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL44C37-L44C58) method first finds all the connectors of an element. Then, each connector is given individually to the [```_searchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL92C12-L92C12) method to find all the air terminals that can be reached through this connector. This method works recursively and is as follows:
 
 ```cs
 private static void _searchForAirTerminals(Autodesk.Revit.DB.Document document, Connector connector)
