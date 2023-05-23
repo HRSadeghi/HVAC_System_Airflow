@@ -34,4 +34,62 @@ public static List<Element> SearchForAirTerminals(Autodesk.Revit.DB.Document doc
 }
 ```
 
-The [```SearchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL44C37-L44C58) method first finds all the connectors of an element. Then, each connector is given individually to the [```_searchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL92C12-L92C12) method to find all the air terminals that can be reached through this connector.
+The [```SearchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL44C37-L44C58) method first finds all the connectors of an element. Then, each connector is given individually to the [```_searchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL92C12-L92C12) method to find all the air terminals that can be reached through this connector. This method works recursively.
+
+```cs
+private static void _searchForAirTerminals(Autodesk.Revit.DB.Document document, Connector connector)
+{
+    List<Connector> connected_connectors = new List<Connector>();
+
+    try
+    {
+        var mepSystem = connector.MEPSystem;
+
+        if (null != mepSystem)
+        {
+            if (connector.IsConnected == true)
+            {
+                var connectorSet = connector.AllRefs;
+                var csi = connectorSet.ForwardIterator();
+                while (csi.MoveNext())
+                {
+                    var connected = csi.Current as Connector;
+                    if (null != connected)
+                    {
+                        // look for physical connections
+                        if (connected.ConnectorType == ConnectorType.End ||
+                            connected.ConnectorType == ConnectorType.Curve ||
+                            connected.ConnectorType == ConnectorType.Physical)
+                        {
+                            if (connector.Owner.Id != connected.Owner.Id)
+                            {
+                                if (!elements_ids.Contains(connected.Owner.Id.IntegerValue))
+                                {
+                                    elements_ids.Add(connected.Owner.Id.IntegerValue);
+
+
+                                    var el = document.GetElement(connected.Owner.Id);
+                                    if (el.Category.Name == "Air Terminals")
+                                    {
+                                        AirTerminals.Add(el);
+                                    }
+
+                                    var new_conectors = GetConnectors(el);
+                                    foreach (var c in new_conectors)
+                                    {
+                                        _searchForAirTerminals(document, (Connector)c);
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .
+    .
+    .
+}
+```
