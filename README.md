@@ -131,3 +131,22 @@ public static double CalculateTotalAirFlow(List<Element> AirTerminals)
     return totalAirFlow;
 }
 ```
+
+## Testing on multiple HVAC systems
+You can see the developed plugin in the figure below, which can be used in Revit software.
+
+![plugin](Images/plugin.png)
+
+In the following, we have tested this plugin on two separate HVAC systems.
+
+First system:
+
+![simple system total airflow](Images/simple_system_total_airflow.png)
+
+
+Second system:
+
+![complex_system_total_airflow](Images/complex_system_total_airflow.png)
+If the selected element is not part of an HVAC system, you will see the following message:
+
+![non uvac system selection](Images/non-uvac-system-selection.png)
