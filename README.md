@@ -100,3 +100,18 @@ private static void _searchForAirTerminals(Autodesk.Revit.DB.Document document, 
 ## Calculating total airflow
 To calculate the total airflow, it is enough to find the Flow parameter from all the air terminals and then sum them up. The  [```CalculateTotalAirFlow```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#L73) method finds the total airflow by receiving a list of air terminals and then finding their Flow parameter.
 
+```cs
+public static double CalculateTotalAirFlow(List<Element> AirTerminals)
+{
+    double totalAirFlow = 0;
+    foreach (var element in AirTerminals)
+    {
+        var airFlow = element.get_Parameter(Autodesk.Revit.DB.BuiltInParameter.RBS_DUCT_FLOW_PARAM)?.AsDouble() ?? 0;
+        totalAirFlow += airFlow;
+    }
+
+    totalAirFlow *= 28.31684; // convert to l/s
+    totalAirFlow = Math.Round(totalAirFlow, 3);
+    return totalAirFlow;
+}
+```
