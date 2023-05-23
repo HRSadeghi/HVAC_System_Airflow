@@ -9,7 +9,7 @@ In this project, we have provided a plug-in for Revit that can calculate the tot
 ## Finding all air terminals
  To find the total airflow, it is enough to find all the air terminals in an HVAC and sum their Flow values.
 
-To do this, the <code class='language-cs'>[Search](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/master/HVAC_System_Airflow/Search/Search.cs)</code> class is implemented, which allows us to find all the air terminals by getting an element from an HVAC system. The [```SearchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL44C37-L44C58) method receives an ```element``` from a system along with the ```document``` and returns a list of air terminals.
+To do this, the <code class='language-cs'>[Search](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/master/HVAC_System_Airflow/Search/Search.cs)</code> class is implemented, which allows us to find all the air terminals by getting an element from an HVAC system. In this class, the [```SearchForAirTerminals```](https://github.com/HRSadeghi/HVAC_System_Airflow/blob/abe3462466eea3232c2caa7d4a5c2acea7d72a95/HVAC_System_Airflow/Search/Search.cs#LL44C37-L44C58) method receives an ```element``` from a system along with the ```document``` and returns a list of air terminals.
 
 ```cs
 public static List<Element> SearchForAirTerminals(Autodesk.Revit.DB.Document document, Element element)
