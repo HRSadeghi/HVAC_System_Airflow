@@ -95,3 +95,7 @@ private static void _searchForAirTerminals(Autodesk.Revit.DB.Document document, 
 
 }
 ```
+
+
+## Calculating total airflow
+To calculate the total airflow, it is enough to find the Flow parameter from all the air terminals and then sum them up.
